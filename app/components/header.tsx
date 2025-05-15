@@ -13,7 +13,7 @@ export default function Header() {
     const pathname = usePathname();
     return (
         <header className="flex flex-col justify-center items-center">
-            <nav className="flex justify-start items-center max-w-[var(--max-w)] p-4 pt-6 text-sm gap-8 w-full">
+            <nav className="flex justify-start items-center page-width p-4 pt-6 text-sm gap-8 w-full">
                 {links.map((link) => {
                     return (
                         <Link href={link.href} key={link.href}

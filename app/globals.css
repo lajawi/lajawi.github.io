@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --line: rgba(0, 0, 0, 0.5);
+  --line: #808080;
   --max-w: 1140px;
 }
 

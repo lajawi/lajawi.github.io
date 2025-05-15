@@ -1,0 +1,35 @@
+'use client';
+
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links: { name: string, href: string }[] = [
+    { name: 'Home', href: '/' },
+    { name: 'Projects', href: '/projects' },
+];
+
+export default function Header() {
+    const pathname = usePathname();
+    return (
+        <header className="flex flex-col justify-center items-center">
+            <nav className="flex justify-start items-center max-w-[var(--max-w)] p-4 pt-6 text-sm gap-8 w-full">
+                {links.map((link) => {
+                    return (
+                        <Link href={link.href} key={link.href}
+                            className={clsx(
+                                {
+                                    "text-[var(--line)]": pathname !== link.href,
+                                    "text-[var(--foreground)]": pathname === link.href,
+                                }
+                            )}
+                        >
+                            {link.name}
+                        </Link>
+                    );
+                })}
+            </nav>
+            <hr className="border-[var(--line)] w-full" />
+        </header>
+    );
+}

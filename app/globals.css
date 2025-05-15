@@ -3,7 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --line: #808080;
+  --muted: #808080;
+  --line: #bfbfbf;
   --max-w: 1140px;
 }
 
@@ -18,7 +19,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --line: rgba(255, 255, 255, 0.5);
+    --line: #464646;
   }
 }
 

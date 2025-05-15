@@ -19,7 +19,7 @@ export default function Header() {
                         <Link href={link.href} key={link.href}
                             className={clsx(
                                 {
-                                    "text-[var(--line)]": pathname !== link.href,
+                                    "text-[var(--muted)]": pathname !== link.href,
                                     "text-[var(--foreground)]": pathname === link.href,
                                 }
                             )}

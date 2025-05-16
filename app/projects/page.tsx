@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { sortedProjects, sortedProjectsAsArray } from "./projects";
+import { DateDetail, sortedProjects, sortedProjectsAsArray } from "./projects";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -24,7 +24,16 @@ export default function Page() {
                         <div className="flex flex-col min-w-full p-4">
                             <h2>{project.metadata?.title?.toString()}</h2>
 
-                            {project.data.date && <p className="text-xs font-thin text-center pb-2">{project.data.date?.getFullYear()}.{project.data.date?.getMonth()}</p>}
+                            {
+                                project.data.date &&
+                                <p className="text-xs font-thin text-center pb-2">{
+                                    project.data.date?.detail >= DateDetail.Year && `${project.data.date?.date.getFullYear()}`
+                                }{
+                                    project.data.date?.detail >= DateDetail.Month && `.${project.data.date?.date.getMonth()}`
+                                }{
+                                    project.data.date?.detail >= DateDetail.Day && `.${project.data.date?.date.getDate()}`
+                                }</p>
+                            }
 
                             {project.metadata?.description && <p className="text-sm font-light whitespace-pre-line">{project.metadata.description}</p>}
                         </div>

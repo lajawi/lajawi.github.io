@@ -4,18 +4,27 @@ export type Project = {
     data: {
         name: string,
         rank: number,
-        date?: Date,
+        date?: {
+            date: Date,
+            detail: DateDetail,
+        },
         image?: string,
     },
     metadata?: Metadata,
 };
+
+export enum DateDetail {
+    Year,
+    Month,
+    Day,
+}
 
 export const projects: Record<string, Project> = {
     "team-tumble": {
         data: {
             name: "Team Tumble",
             rank: 10,
-            date: new Date(2024, 9),
+            date: { date: new Date(2024, 9), detail: DateDetail.Month },
         },
         metadata: {
             title: "Team Tumble",
@@ -26,7 +35,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Pigeon",
             rank: 6,
-            date: new Date(2024, 5)
+            date: { date: new Date(2024, 5), detail: DateDetail.Month },
         },
         metadata: {
             title: "Pigeon",

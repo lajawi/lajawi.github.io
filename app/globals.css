@@ -32,3 +32,32 @@ body {
 .page-width {
   max-width: var(--max-w);
 }
+
+h1 {
+  font-size: xx-large;
+  font-weight: 900;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: large;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: medium;
+  font-weight: 600;
+}

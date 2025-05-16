@@ -6,6 +6,7 @@
   --muted: #808080;
   --line: #bfbfbf;
   --max-w: 1140px;
+  --link: #28a0ff;
 }
 
 @theme inline {
@@ -60,4 +61,8 @@ h3 {
 h4 {
   font-size: medium;
   font-weight: 600;
+}
+
+p > a {
+  color: var(--link);
 }

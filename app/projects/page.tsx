@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { DateDetail, sortedProjects, sortedProjectsAsArray } from "./projects";
+import { DateDetail, sortedProjectsAsArray } from "./projects";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function Page() {
         <div className="page-width w-full">
             <h1>Projects</h1>
 
-            {sortedProjectsAsArray()?.map((proj, i) => {
+            {sortedProjectsAsArray()?.map((proj) => {
                 const id = proj[0];
                 const project = proj[1];
                 return (

@@ -8,7 +8,7 @@ export type Project = {
             date: Date,
             detail: DateDetail,
         },
-        image?: string,
+        image?: boolean,
     },
     metadata?: Metadata,
 };
@@ -25,6 +25,7 @@ export const projects: Record<string, Project> = {
             name: "Team Tumble",
             rank: 10,
             date: { date: new Date(2024, 9), detail: DateDetail.Month },
+            image: true,
         },
         metadata: {
             title: "Team Tumble",
@@ -36,6 +37,7 @@ export const projects: Record<string, Project> = {
             name: "Pigeon",
             rank: 6,
             date: { date: new Date(2024, 5), detail: DateDetail.Month },
+            image: true,
         },
         metadata: {
             title: "Pigeon",
@@ -45,6 +47,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Bubble Broth",
             rank: 9,
+            image: true,
         },
         metadata: {
             title: "Bubble Broth",

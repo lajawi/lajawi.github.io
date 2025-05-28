@@ -1,0 +1,29 @@
+# Auto detect text files and perform LF normalization
+[attr]lfs   filter=lfs diff=lfs merge=lfs -binary
+
+* text=auto
+
+# Images
+*.jpg   lfs
+*.jpeg  lfs
+*.png   lfs
+*.gif   lfs
+*.ico   lfs
+*.webp  lfs
+
+# Videos
+*.mp4   lfs
+*.webm  lfs
+
+# Audio
+*.mp3   lfs
+*.wav   lfs
+
+# WebGL specific
+*.wasm  lfs
+*.data  lfs
+# Misc
+
+*.zip   lfs
+*.pdf   lfs
+*.doc   lfs

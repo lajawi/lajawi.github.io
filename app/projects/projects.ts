@@ -47,12 +47,131 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Bubble Broth",
             rank: 9,
+            date: { date: new Date(2024, 10), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
             title: "Bubble Broth",
         }
-    }
+    },
+    "tussen-wet-en-geweten": {
+        data: {
+            name: "Tussen Wet en Geweten",
+            rank: 8,
+            date: { date: new Date(2024, 2), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Tussen Wet en Geweten",
+            description: `Take on the role of a mayor, who tries to respect as many of the universal human rights as possible. Get confronted with different situations and choose wisely.
+
+            With every choice you make, you may or may not be disrespecting human rights.`
+        }
+    },
+    "shrimp-vr": {
+        data: {
+            name: "Shrimp VR",
+            rank: 8,
+            date: { date: new Date(2025, 2), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Shrimp VR",
+        }
+    },
+    "bot-i": {
+        data: {
+            name: "BOT-i",
+            rank: 6,
+            date: { date: new Date(2024, 5), detail: DateDetail.Year },
+            image: true,
+        },
+        metadata: {
+            title: "BOT-i",
+            description: `In a world of scrap, BOT-i remains. Puzzle your way through increasingly difficult terrain, while avoiding running out of battery.`,
+        }
+    },
+    "3-props": {
+        data: {
+            name: "3 Props",
+            rank: 5,
+            date: { date: new Date(2024, 1), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "3 Props",
+            description: `Yes, kitchen appliances`,
+        }
+    },
+    "sound-design-for-a-pre-existing-game-video": {
+        data: {
+            name: "Sound Design for a Pre-existing Game Video",
+            rank: 5,
+            date: { date: new Date(2024, 10), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Sound Design for a Pre-existing Game Video",
+        }
+    },
+    "character-clash": {
+        data: {
+            name: "Character Clash",
+            rank: 5,
+            date: { date: new Date(2024, 10), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Character Clash",
+        }
+    },
+    "operation-skyhigh": {
+        data: {
+            name: "Operation Skyhigh",
+            rank: 5,
+            date: { date: new Date(2023, 11), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Operation Skyhigh",
+            description: `Work together with your friend, to fend yourselves against the ever increasing waves of enemies coming your way. Skillfully dash through them, or let out a burst of power, destroying the enemies in the meantime.`,
+        }
+    },
+    "walking-animation": {
+        data: {
+            name: "Walking Animation",
+            rank: 4,
+            date: { date: new Date(2024, 4), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Walking Animation",
+        }
+    },
+    "monumental": {
+        data: {
+            name: "Monumental",
+            rank: 4,
+            date: { date: new Date(2023, 5), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Monumental",
+            description: `Solve intriguing puzzles in scenic, well-known locations around the world!`,
+        }
+    },
+    "sticky-getaway": {
+        data: {
+            name: "Sticky Getaway",
+            rank: 3,
+            date: { date: new Date(2023, 3), detail: DateDetail.Month },
+            image: true,
+        },
+        metadata: {
+            title: "Sticky Getaway",
+            description: `Go about escaping the neon labs, cleverly avoiding spikes and enemies! Find buttons, press buttons, open doors!`,
+        }
+    },
 } as const;
 
 export const sortedProjectsAsArray = (): [string, Project][] => {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DateDetail, sortedProjectsAsArray } from "./projects";
 import Image from "next/image";
 import clsx from "clsx";
+import DateDisplay from "../components/date";
 
 export const metadata: Metadata = {
     title: "Projects",
@@ -38,13 +39,7 @@ export default function Page() {
                                     {
                                         project.data.date &&
                                         <span className="flex flex-row justify-center items-center pb-2 gap-4">
-                                            <p className="text-xs font-thin text-center">{
-                                                project.data.date?.detail >= DateDetail.Year && `${project.data.date?.date.getFullYear()}`
-                                            }{
-                                                project.data.date?.detail >= DateDetail.Month && `.${project.data.date?.date.getMonth()}`
-                                            }{
-                                                project.data.date?.detail >= DateDetail.Day && `.${project.data.date?.date.getDate()}`
-                                            }</p>
+                                            <DateDisplay date={project.data.date.date} detail={project.data.date.detail} className="text-xs font-thin text-center" />
                                             {date <= project.data.date.date &&
                                             <span className="relative flex size-3">
                                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>

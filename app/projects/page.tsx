@@ -25,7 +25,7 @@ export default function Page() {
                         const project = proj[1];
                         return (
                             <Link href={`${pathname}/${id}`} key={id}
-                            className={clsx("flex flex-col items-center bg-[var(--off-background)] rounded-[5px] overflow-hidden project-card transition-colors",
+                            className={clsx("flex flex-col items-center bg-(--off-background) rounded-[5px] overflow-hidden project-card transition-colors",
                                 {
                                     "xl:flex-row": i % 2 === 0,
                                     "xl:flex-row-reverse": i % 2 !== 0,

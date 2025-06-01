@@ -33,7 +33,7 @@ export const socials: Socials = {
 
 export function SocialLink({ social }: { social: Social }) {
     return (
-        <Link href={social.href} target="_blank" title={social.title} className="bg-[var(--muted)] w-10 h-10 m-4 select-none cursor-pointer" style={{
+        <Link href={social.href} target="_blank" title={social.title} className="bg-(--muted) w-10 h-10 m-4 select-none cursor-pointer" style={{
             maskImage: `url(/logos/${social.id}.svg)`,
             maskSize: "2rem",
             maskRepeat: "no-repeat",

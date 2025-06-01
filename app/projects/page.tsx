@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { DateDetail, sortedProjectsAsArray } from "./projects";
+import { sortedProjectsAsArray } from "./projects";
 import Image from "next/image";
 import clsx from "clsx";
 import DateDisplay from "../components/date";

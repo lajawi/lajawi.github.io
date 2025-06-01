@@ -4,13 +4,13 @@ export default function DateDisplay({ className, date, detail }: { className?: s
     return (
         <>
             {
-                date && detail &&
+                date && detail !== undefined &&
                 <p className={className}>{
                     detail >= DateDetail.Year && `${date.getFullYear()}`
                 }{
-                    detail >= DateDetail.Month && `.${date.getMonth()}`
+                    detail >= DateDetail.Month && `.${String(date.getMonth()).padStart(2, "0")}`
                 }{
-                    detail >= DateDetail.Day && `.${date.getDate()}`
+                    detail >= DateDetail.Day && `.${String(date.getDate()).padStart(2, "0")}`
                 }</p>
             }
         </>

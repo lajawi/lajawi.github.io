@@ -11,6 +11,9 @@ export const metadata: Metadata = {
 export default function Page() {
     const pathname = '/projects';
 
+    const date = new Date();
+    date.setMonth(date.getMonth() - 3);
+
     return (
         <div className="page-width w-full">
             <h1>Projects</h1>
@@ -34,13 +37,21 @@ export default function Page() {
 
                                     {
                                         project.data.date &&
-                                        <p className="text-xs font-thin text-center pb-2">{
-                                            project.data.date?.detail >= DateDetail.Year && `${project.data.date?.date.getFullYear()}`
-                                        }{
-                                            project.data.date?.detail >= DateDetail.Month && `.${project.data.date?.date.getMonth()}`
-                                        }{
-                                            project.data.date?.detail >= DateDetail.Day && `.${project.data.date?.date.getDate()}`
-                                        }</p>
+                                        <span className="flex flex-row justify-center items-center pb-2 gap-4">
+                                            <p className="text-xs font-thin text-center">{
+                                                project.data.date?.detail >= DateDetail.Year && `${project.data.date?.date.getFullYear()}`
+                                            }{
+                                                project.data.date?.detail >= DateDetail.Month && `.${project.data.date?.date.getMonth()}`
+                                            }{
+                                                project.data.date?.detail >= DateDetail.Day && `.${project.data.date?.date.getDate()}`
+                                            }</p>
+                                            {date <= project.data.date.date &&
+                                            <span className="relative flex size-3">
+                                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                                                <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+                                            </span>
+                                            }
+                                        </span>
                                     }
 
                                     {project.metadata?.description && <p className="text-sm font-light whitespace-pre-line">{project.metadata.description}</p>}

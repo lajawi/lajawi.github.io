@@ -10,7 +10,7 @@ export type Project = {
         },
         image?: boolean,
     },
-    metadata?: Metadata,
+    metadata: Metadata,
 };
 
 export enum DateDetail {

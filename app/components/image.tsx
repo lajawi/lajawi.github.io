@@ -39,7 +39,7 @@ export function FullscreenImage() {
 
     return (
         <div className="cursor-zoom-out fixed inset-0 bg-black/80 flex items-center justify-center object-contain z-40" onClick={closeFullscreen}>
-            <NextImage id={currentImage.id} src={currentImage.src} alt={currentImage.alt} width={currentImage.width} height={currentImage.height} className="duration-100 p-8 md:px-20 object-contain w-full h-full" />
+            <NextImage id={currentImage.id} src={currentImage.src} alt={currentImage.alt} width={currentImage.width} height={currentImage.height} className="duration-100 p-8 md:px-20 object-contain w-full h-full" unoptimized />
 
             <button onClick={(e) => {e.stopPropagation(); closeFullscreen();}} className="absolute top-4 right-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
                 <X className="h-6 w-6" />

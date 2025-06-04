@@ -37,6 +37,8 @@ export function FullscreenImage() {
     const currentImage = images[currentIndex];
     if (!currentImage) return null;
 
+    const count = images.length;
+
     return (
         <div className="cursor-zoom-out fixed inset-0 bg-black/80 flex items-center justify-center object-contain z-40" onClick={closeFullscreen}>
             <NextImage id={currentImage.id} src={currentImage.src} alt={currentImage.alt} width={currentImage.width} height={currentImage.height} className="duration-100 p-8 md:px-20 object-contain w-full h-full" unoptimized />
@@ -44,12 +46,16 @@ export function FullscreenImage() {
             <button onClick={(e) => {e.stopPropagation(); closeFullscreen();}} className="absolute top-4 right-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
                 <X className="h-6 w-6" />
             </button>
-            <button onClick={(e) => {e.stopPropagation(); goToPrevious();}} className="absolute left-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
-                <ChevronLeft className="h-8 w-8" />
-            </button>
-            <button onClick={(e) => {e.stopPropagation(); goToNext();}} className="absolute right-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
-                <ChevronRight className="h-8 w-8" />
-            </button>
+            {count > 1 &&
+                <>
+                    <button onClick={(e) => {e.stopPropagation(); goToPrevious();}} className="absolute left-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
+                        <ChevronLeft className="h-8 w-8" />
+                    </button>
+                    <button onClick={(e) => {e.stopPropagation(); goToNext();}} className="absolute right-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
+                        <ChevronRight className="h-8 w-8" />
+                    </button>
+                </>
+            }
         </div>
     );
 }

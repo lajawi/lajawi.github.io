@@ -8,9 +8,9 @@ export default function DateDisplay({ className, date, detail }: { className?: s
                 <p className={className}>{
                     detail >= DateDetail.Year && `${date.getFullYear()}`
                 }{
-                    detail >= DateDetail.Month && `.${String(date.getMonth()).padStart(2, "0")}`
+                    detail >= DateDetail.Month && <><span className="text-(--muted) px-1">/</span>{String(date.getMonth()).padStart(2, "0")}</>
                 }{
-                    detail >= DateDetail.Day && `.${String(date.getDate()).padStart(2, "0")}`
+                    detail >= DateDetail.Day && <><span className="text-(--muted) px-1">/</span>{String(date.getDate()).padStart(2, "0")}</>
                 }</p>
             }
         </>

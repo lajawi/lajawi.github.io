@@ -2,7 +2,7 @@
 
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { usePathname } from "next/navigation";
-import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, ReactNode, useCallback, useContext, useState } from "react";
 
 interface Image {
     id: string,
@@ -15,6 +15,7 @@ interface Image {
 interface ImageContextType {
     images: Image[],
     currentIndex: number,
+    currentPath: string,
     isFullscreen: boolean,
     registerImage: (image: Image) => void,
     openFullscreen: (id: string) => void,
@@ -42,16 +43,14 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState<number>(-1);
     const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
     const pathname = usePathname();
-    const previousPathname = useRef(pathname);
+    const [currentPath, setCurrentPath] = useState(pathname);
 
-    useEffect(() => {
-        if (previousPathname.current !== pathname && previousPathname.current !== null) {
-            setImages([]);
-            setCurrentIndex(-1);
-            setIsFullscreen(false);
-        }
-        previousPathname.current = pathname;
-    }, [pathname]);
+    if (currentPath !== pathname) {
+        setImages([]);
+        setCurrentIndex(-1);
+        setIsFullscreen(false);
+        setCurrentPath(pathname);
+    }
 
     const registerImage = useCallback((image: Image) => {
         setImages((prevImages) => {
@@ -63,9 +62,9 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
     }, []);
 
     const openFullscreen = (id: string) => {
-        document.body.classList.add("overflow-y-hidden");
         const index = images.findIndex((img) => img.id === id);
         if (index !== -1) {
+            document.body.classList.add("overflow-y-hidden");
             setCurrentIndex(index);
             setIsFullscreen(true);
         }
@@ -89,6 +88,7 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
             value={{
                 images,
                 currentIndex,
+                currentPath,
                 isFullscreen,
                 registerImage,
                 openFullscreen,

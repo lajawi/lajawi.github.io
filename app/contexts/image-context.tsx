@@ -47,8 +47,11 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
     useEffect(() => {
         if (previousPathname.current !== pathname && previousPathname.current !== null) {
             setImages([]);
+            console.log("Reset images due to pathname change");
             setCurrentIndex(-1);
+            console.log("Set current index to -1 due to pathname change");
             setIsFullscreen(false);
+            console.log("Set fullscreen to false due to pathname change");
         }
         previousPathname.current = pathname;
     }, [pathname]);
@@ -56,8 +59,10 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
     const registerImage = useCallback((image: Image) => {
         setImages((prevImages) => {
             if (!prevImages.some((img) => img.id === image.id)) {
+                console.log(`Registering image with id '${image.id}'`);
                 return [...prevImages, image];
             }
+            console.log(`Registering image with id '${image.id}' skipped because was already in the list`);
             return prevImages;
         });
     }, []);
@@ -67,13 +72,19 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
         const index = images.findIndex((img) => img.id === id);
         if (index !== -1) {
             setCurrentIndex(index);
+            console.log(`Setting current index to ${index}`);
             setIsFullscreen(true);
+            console.log("Fullscreen set to true");
+        } else {
+            console.log("Index is -1, not going fullscreen");
+            document.body.classList.remove("overflow-y-hidden");
         }
     };
 
     const closeFullscreen = () => {
         document.body.classList.remove("overflow-y-hidden");
         setIsFullscreen(false);
+        console.log("Set fullscreen to false");
     };
 
     const goToNext = () => {

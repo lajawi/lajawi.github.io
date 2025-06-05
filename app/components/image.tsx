@@ -61,11 +61,11 @@ export function FullscreenImage() {
 }
 
 export default function Image({ id, src, alt, ...props }: { id: string } & ImageProps) {
-    const { registerImage, openFullscreen } = useImageContext();
+    const { registerImage, openFullscreen, currentPath } = useImageContext();
 
     useEffect(() => {
         registerImage({ id: id!, src, alt, width: props.width, height: props.height });
-    }, [id, src, alt, props.width, props.height, registerImage]);
+    }, [id, src, alt, props.width, props.height, registerImage, currentPath]);
 
     const handleClick = () => {
         openFullscreen(id!);

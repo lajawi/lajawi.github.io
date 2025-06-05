@@ -15,6 +15,7 @@ interface Image {
 interface ImageContextType {
     images: Image[],
     currentIndex: number,
+    currentPath: string,
     isFullscreen: boolean,
     registerImage: (image: Image) => void,
     openFullscreen: (id: string) => void,
@@ -42,19 +43,19 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState<number>(-1);
     const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
     const pathname = usePathname();
-    const previousPathname = useRef(pathname);
+    const [currentPath, setCurrentPath] = useState(pathname);
 
-    useEffect(() => {
-        if (previousPathname.current !== pathname && previousPathname.current !== null) {
-            setImages([]);
-            console.log("Reset images due to pathname change");
-            setCurrentIndex(-1);
-            console.log("Set current index to -1 due to pathname change");
-            setIsFullscreen(false);
-            console.log("Set fullscreen to false due to pathname change");
-        }
-        previousPathname.current = pathname;
-    }, [pathname]);
+    if (currentPath !== pathname) {
+        console.log(`Pathname changed from ${currentPath} to ${pathname} - resetting images`);
+        setImages([]);
+        console.log("Reset images due to pathname change");
+        setCurrentIndex(-1);
+        console.log("Set current index to -1 due to pathname change");
+        setIsFullscreen(false);
+        console.log("Set fullscreen to false due to pathname change");
+        setCurrentPath(pathname);
+        console.log(`Set current pathname to ${pathname}`);
+    }
 
     const registerImage = useCallback((image: Image) => {
         setImages((prevImages) => {
@@ -100,6 +101,7 @@ export const ImageProvider: React.FC<ImageProviderProps> = ({ children }) => {
             value={{
                 images,
                 currentIndex,
+                currentPath,
                 isFullscreen,
                 registerImage,
                 openFullscreen,

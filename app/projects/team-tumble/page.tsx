@@ -54,12 +54,13 @@ export default function Page() {
 
             {/* TODO: Fine tune image placement on different mediums */}
             <div className="grid grid-flow-dense xl:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle gap-4 md:max-w-[75%] xl:max-w-full">
-                <div>
+                <div className="flex flex-col items-center gap-4">
                     <p>Very early in development, I decided to switch to using tile maps in Unity (my first time, actually), which required a rewrite of my whole project as it was at that point, a task I am very glad of achieving.</p>
+                    <Image id="tilemaps" className="xl:hidden md:max-w-[66.66%]" src="/projects/team-tumble/tilemaps.png" width={1600} height={900} alt="" />
                     <h2 id='colour-palettes'>Colour Palettes</h2>
                     <p>Once the game was in a working state, my focus shifted towards the visuals. At first, I just updated the so-called {`"programmer art"`} to something more coherent and nice-looking, but afterwards I started experimenting with different colour palettes. I tried out different wild ideas, like black & white, a colour palette inspired heavily by <Link href="https://www.hempuli.com/baba/" target="_blank">Baba Is You</Link>, and others, until I ended up with a nice and vibrant one.</p>
                 </div>
-                <Image id="tilemaps" className="xl:order-1 -order-1" src="/projects/team-tumble/tilemaps.png" width={1600} height={900} alt="" />
+                <Image id="tilemaps" className="xl:order-1 -order-1 not-xl:hidden" src="/projects/team-tumble/tilemaps.png" width={1600} height={900} alt="" />
             </div>
 
             <div className="grid md:grid-cols-2 items-center align-middle gap-2">

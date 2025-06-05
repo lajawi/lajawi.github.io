@@ -2,7 +2,7 @@
 
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { usePathname } from "next/navigation";
-import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, ReactNode, useCallback, useContext, useState } from "react";
 
 interface Image {
     id: string,

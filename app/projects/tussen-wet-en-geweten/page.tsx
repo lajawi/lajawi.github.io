@@ -38,7 +38,7 @@ export default function Page() {
             <div className="grid md:grid-cols-3 sm:grid-cols-2 items-center align-middle gap-2">
                 {images.map((image, index) => {
                     return(
-                        <Image id={`img-${index}`} key={`img-${index}`} src={image} alt="" placeholder="blur" />
+                        <Image id={`img-${index}`} key={`img-${index}`} src={image} alt="" />
                     )
                 })}
             </div>

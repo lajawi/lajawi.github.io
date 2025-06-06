@@ -40,8 +40,8 @@ export function FullscreenImage() {
     const count = images.length;
 
     return (
-        <div className="cursor-zoom-out fixed inset-0 bg-black/80 flex items-center justify-center object-contain z-40" onClick={closeFullscreen}>
-            <NextImage id={currentImage.id} src={currentImage.src} alt={currentImage.alt} width={currentImage.width} height={currentImage.height} className="duration-100 p-8 md:px-20 object-contain w-full h-full" unoptimized />
+        <div className="cursor-zoom-out fixed inset-0 bg-black/80 flex items-center justify-center object-contain z-40 p-8 md:px-20" onClick={closeFullscreen}>
+            <NextImage id={currentImage.id} src={currentImage.src} alt={currentImage.alt} width={currentImage.width} height={currentImage.height} className="duration-100 object-contain max-w-full max-h-full w-max h-max" unoptimized placeholder={typeof currentImage.src !== 'string' ? "blur" : "empty"} />
 
             <button onClick={(e) => {e.stopPropagation(); closeFullscreen();}} className="absolute top-4 right-4 text-white p-2 rounded-md bg-white/25 hover:bg-white/50 transition-colors cursor-pointer z-50">
                 <X className="h-6 w-6" />
@@ -72,6 +72,6 @@ export default function Image({ id, src, alt, ...props }: { id: string } & Image
     };
 
     return (
-        <NextImage id={id!} src={src || ""} alt={alt || ""} onClick={handleClick} {...props} className={clsx("cursor-zoom-in", props.className)} />
+        <NextImage id={id!} src={src || ""} alt={alt || ""} onClick={handleClick} {...props} className={clsx("cursor-zoom-in", props.className)} placeholder={typeof src !== 'string' ? "blur" : "empty"} />
     );
 }

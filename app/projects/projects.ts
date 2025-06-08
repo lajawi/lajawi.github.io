@@ -182,7 +182,45 @@ export const sortedProjectsAsArray = (): [string, Project][] => {
     return Object.entries(projects).sort((a, b) => b[1].data.rank - a[1].data.rank);
 }
 
-export const sortedProjects = (): Record<string, Project> => {
-    const sortedArr = sortedProjectsAsArray()
-    return Object.fromEntries(sortedArr);
+type ProjectArray = ({ id: string } & Project)[];
+
+const projectsAsObject = (): ProjectArray => {
+    return Object.entries(projects).map(([k, v]) => ({
+        id: k,
+        ...v,
+    }));
+};
+
+const sortedProjectsByRank = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => b.data.rank - a.data.rank);
+}
+
+const sortedProjectsByName = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => a.data.name.localeCompare(b.data.name, "en"))
+}
+
+const sortedProjectsByDate = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => {
+        if (!b.data.date) {
+            return -1;
+        }
+        if (!a.data.date) {
+            return 1;
+        }
+        return b.data.date!.date.getTime() - a.data.date!.date.getTime();
+    });
+}
+
+export type SortByType = "rank" | "name" | "date";
+
+export const sortedProjects = (sortBy: SortByType, ascending: boolean): ProjectArray => {
+    const arr = SortBy[sortBy]();
+
+    return ascending ? arr.reverse() : arr;
+}
+
+const SortBy: Record<SortByType, () => ProjectArray> = {
+    "rank": sortedProjectsByRank,
+    "name": sortedProjectsByName,
+    "date": sortedProjectsByDate,
 };

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "@/app/components/image";
 import DateDisplay from "@/app/components/date";
 import Link from "next/link";
+import title from "@/public/projects/bubble-broth/title.png";
 
 const project = projects["bubble-broth"];
 
@@ -12,7 +13,7 @@ export default function Page() {
     return (
         <div className="flex flex-col items-center gap-4 text-justify w-full">
             <span className="w-dvw flex justify-center bg-[#ffe2aa]">
-                <Image className="md:mask-x-from-95%" id="bubble-broth-title" src="/projects/bubble-broth/title.png" width={1920 * 0.5} height={640 * 0.5} alt="" />
+                <Image className="md:mask-x-from-95%" id="bubble-broth-title" src={title} width={1920 * 0.5} height={640 * 0.5} alt="" />
             </span>
 
             <div className="page-width flex flex-col items-center">

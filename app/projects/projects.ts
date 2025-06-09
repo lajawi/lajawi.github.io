@@ -5,6 +5,10 @@ export type Project = {
         name: string,
         rank: number,
         date?: {
+            /** If inputting the date with new Date(year, month, date), be sure to subtract 1 from the month, as it's an index between 0 and 11
+             *
+             * When reading it's output with getMonth() do the opposite, add 1
+            */
             date: Date,
             detail: DateDetail,
         },
@@ -24,7 +28,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Team Tumble",
             rank: 10,
-            date: { date: new Date(2024, 9), detail: DateDetail.Month },
+            date: { date: new Date(2024, 11), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -47,7 +51,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Bubble Broth",
             rank: 9,
-            date: { date: new Date(2024, 10), detail: DateDetail.Month },
+            date: { date: new Date(2024, 9), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -58,7 +62,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Tussen Wet en Geweten",
             rank: 8,
-            date: { date: new Date(2024, 2), detail: DateDetail.Month },
+            date: { date: new Date(2024, 1), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -72,7 +76,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Shrimp VR",
             rank: 8,
-            date: { date: new Date(2025, 2), detail: DateDetail.Month },
+            date: { date: new Date(2025, 1), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -83,7 +87,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "BOT-i",
             rank: 6,
-            date: { date: new Date(2024, 5), detail: DateDetail.Year },
+            date: { date: new Date(2024, 4), detail: DateDetail.Year },
             image: true,
         },
         metadata: {
@@ -95,7 +99,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "3 Props",
             rank: 5,
-            date: { date: new Date(2024, 1), detail: DateDetail.Month },
+            date: { date: new Date(2024, 0), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -107,7 +111,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Sound Design for a Pre-existing Game Video",
             rank: 5,
-            date: { date: new Date(2024, 10), detail: DateDetail.Month },
+            date: { date: new Date(2024, 9), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -118,7 +122,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Character Clash",
             rank: 5,
-            date: { date: new Date(2024, 10), detail: DateDetail.Month },
+            date: { date: new Date(2024, 9), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -129,7 +133,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Operation Skyhigh",
             rank: 5,
-            date: { date: new Date(2023, 11), detail: DateDetail.Month },
+            date: { date: new Date(2023, 10), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -141,7 +145,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Walking Animation",
             rank: 4,
-            date: { date: new Date(2024, 4), detail: DateDetail.Month },
+            date: { date: new Date(2024, 3), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -152,7 +156,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Monumental",
             rank: 4,
-            date: { date: new Date(2023, 5), detail: DateDetail.Month },
+            date: { date: new Date(2023, 4), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -164,7 +168,7 @@ export const projects: Record<string, Project> = {
         data: {
             name: "Sticky Getaway",
             rank: 3,
-            date: { date: new Date(2023, 3), detail: DateDetail.Month },
+            date: { date: new Date(2023, 2), detail: DateDetail.Month },
             image: true,
         },
         metadata: {
@@ -178,7 +182,45 @@ export const sortedProjectsAsArray = (): [string, Project][] => {
     return Object.entries(projects).sort((a, b) => b[1].data.rank - a[1].data.rank);
 }
 
-export const sortedProjects = (): Record<string, Project> => {
-    const sortedArr = sortedProjectsAsArray()
-    return Object.fromEntries(sortedArr);
+type ProjectArray = ({ id: string } & Project)[];
+
+const projectsAsObject = (): ProjectArray => {
+    return Object.entries(projects).map(([k, v]) => ({
+        id: k,
+        ...v,
+    }));
+};
+
+const sortedProjectsByRank = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => b.data.rank - a.data.rank);
+}
+
+const sortedProjectsByName = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => a.data.name.localeCompare(b.data.name, "en"))
+}
+
+const sortedProjectsByDate = (): ProjectArray => {
+    return projectsAsObject().sort((a, b) => {
+        if (!b.data.date) {
+            return -1;
+        }
+        if (!a.data.date) {
+            return 1;
+        }
+        return b.data.date!.date.getTime() - a.data.date!.date.getTime();
+    });
+}
+
+export type SortByType = "rank" | "name" | "date";
+
+export const sortedProjects = (sortBy: SortByType, ascending: boolean): ProjectArray => {
+    const arr = SortBy[sortBy]();
+
+    return ascending ? arr.reverse() : arr;
+}
+
+const SortBy: Record<SortByType, () => ProjectArray> = {
+    "rank": sortedProjectsByRank,
+    "name": sortedProjectsByName,
+    "date": sortedProjectsByDate,
 };

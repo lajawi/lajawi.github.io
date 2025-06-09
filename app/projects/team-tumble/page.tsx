@@ -3,18 +3,26 @@ import { projects } from "../projects";
 import ProjectHeader from "@/app/components/project-header";
 import Link from "next/link";
 import Image from "@/app/components/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import colorPal1 from "@/public/projects/team-tumble/colour-palettes-1.png";
+import colorPal2 from "@/public/projects/team-tumble/colour-palettes-2.png";
+import colorPal3 from "@/public/projects/team-tumble/colour-palettes-3.png";
+import colorPal4 from "@/public/projects/team-tumble/colour-palettes-4.png";
+import colorPal5 from "@/public/projects/team-tumble/colour-palettes-5.png";
+import colorPal6 from "@/public/projects/team-tumble/colour-palettes-6.png";
+import ideaBigSmall from "@/public/projects/team-tumble/idea-big-small.png";
+import ideaFtSokoban from "@/public/projects/team-tumble/idea-boulder-dash-ft-sokoban.png";
+import ideaCoalMines from "@/public/projects/team-tumble/idea-coal-mines.png";
+import objectOriented from "@/public/projects/team-tumble/object-oriented.png";
+import tilemaps from "@/public/projects/team-tumble/tilemaps.png";
+import ui from "@/public/projects/team-tumble/ui.png";
 
 const project = projects["team-tumble"];
 
 export const metadata: Metadata = project.metadata;
 
-const paletteImages: string[] = [
-    'colour-palettes-1.png',
-    'colour-palettes-2.png',
-    'colour-palettes-3.png',
-    'colour-palettes-4.png',
-    'colour-palettes-5.png',
-    'colour-palettes-6.png',
+const paletteImages: StaticImport[] = [
+    colorPal1, colorPal2, colorPal3, colorPal4, colorPal5, colorPal6,
 ];
 
 // TODO: Add image alts, from https://laurin-winter.name/team-tumble
@@ -30,12 +38,12 @@ export default function Page() {
                     <h2 id='ideation'>Ideation</h2>
                     <p>In one of the ideas I came up with, I combined Sokoban and Boulder Dash, essentially a game where you need to make boulders fall into specific spots to finish the level by digging dirt from underneath and pushing the boulders around.</p>
                 </div>
-                <Image id="idea-1" src="/projects/team-tumble/idea-boulder-dash-ft-sokoban.png" width={1619} height={784} alt="Idea: Boulder Dash and Sokoban combined" />
+                <Image id="idea-1" src={ideaFtSokoban} width={1619} height={784} alt="Idea: Boulder Dash and Sokoban combined" />
             </div>
 
             <div className="grid lg:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-[75%] lg:max-w-full">
                 <p>{"The second idea was inspired by the location of my home university, LUCA School of Arts in Genk. It sits atop a decommisioned coal mine, and in this concept, you would need to dig for enough coal and escape before the time runs out. The catch is, the timer is oxygen inside the mines, so instead of a global timer, it's local timers, visualised by canaries in the level, which are either standing (still enough oxygen), falling (barely enough), or dead (time ran out for that particular area)."}</p>
-                <Image id="idea-2" src="/projects/team-tumble/idea-coal-mines.png" width={1499} height={775} alt="Idea: Coal Mines" />
+                <Image id="idea-2" src={ideaCoalMines} width={1499} height={775} alt="Idea: Coal Mines" />
             </div>
 
             <div className="grid grid-flow-dense lg:grid-cols-[minmax(0,max-content)_minmax(40%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-[75%] lg:max-w-full">
@@ -43,30 +51,30 @@ export default function Page() {
                     <p>In a third idea, I played around with the size of the player character. What if, instead of only one block, you could suddenly dig through what is essentially four blocks of dirt?</p>
                     <p>By using the sparsely distributed powerups to grow and shrink in size, you would have to dig to a hidden treasure, and escape the level before the time runs out.</p>
                 </div>
-                <Image id="idea-3" src="/projects/team-tumble/idea-big-small.png" width={1345} height={829} alt="Idea: Player Resising" />
+                <Image id="idea-3" src={ideaBigSmall} width={1345} height={829} alt="Idea: Player Resising" />
             </div>
 
             <p className="md:max-w-[75%]">In yet another concept, I played around with the amount of characters. Why only have one, if you could have more? This idea stuck, and I went on to prototype around it.</p>
 
             <h2 id='prototyping'>Prototyping</h2>
             <p className="md:max-w-[75%]">With a clear vision of what my core game mechanics were, I started prototyping. At first, I worked with an object oriented approach, but that quickly became a burden, especially once I implemented the boulders. They need to know when another space is either occupied or about to be occupied in the next update.</p>
-            <Image className="md:max-w-[50%]" id="object-orient" src="/projects/team-tumble/object-oriented.png" width={1600} height={900} alt="" />
+            <Image className="md:max-w-[50%]" id="object-orient" src={objectOriented} width={1600} height={900} alt="" />
 
             {/* TODO: Fine tune image placement on different mediums */}
             <div className="grid grid-flow-dense xl:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle gap-4 md:max-w-[75%] xl:max-w-full">
                 <div className="flex flex-col items-center gap-4">
                     <p>Very early in development, I decided to switch to using tile maps in Unity (my first time, actually), which required a rewrite of my whole project as it was at that point, a task I am very glad of achieving.</p>
-                    <Image id="tilemaps" className="xl:hidden md:max-w-[66.66%]" src="/projects/team-tumble/tilemaps.png" width={1600} height={900} alt="" />
+                    <Image id="tilemaps" className="xl:hidden md:max-w-[66.66%]" src={tilemaps} width={1600} height={900} alt="" />
                     <h2 id='colour-palettes'>Colour Palettes</h2>
                     <p>Once the game was in a working state, my focus shifted towards the visuals. At first, I just updated the so-called {`"programmer art"`} to something more coherent and nice-looking, but afterwards I started experimenting with different colour palettes. I tried out different wild ideas, like black & white, a colour palette inspired heavily by <Link href="https://www.hempuli.com/baba/" target="_blank">Baba Is You</Link>, and others, until I ended up with a nice and vibrant one.</p>
                 </div>
-                <Image id="tilemaps" className="xl:order-1 -order-1 not-xl:hidden" src="/projects/team-tumble/tilemaps.png" width={1600} height={900} alt="" />
+                <Image id="tilemaps" className="xl:order-1 -order-1 not-xl:hidden" src={tilemaps} width={1600} height={900} alt="" />
             </div>
 
             <div className="grid md:grid-cols-2 items-center align-middle gap-2">
                 {paletteImages.map((image, index) => {
                     return (
-                        <Image id={`palette-${index}`} key={image} src={`/projects/team-tumble/${image}`} width={1600} height={900} alt={`Colour palette ${index + 1}`} />
+                        <Image id={`palette-${index}`} key={`palette-${index}`} src={image} width={1600} height={900} alt={`Colour palette ${index + 1}`} />
                     )
                 })}
             </div>
@@ -76,7 +84,7 @@ export default function Page() {
                     <h2 id='ui'>UI</h2>
                     <p>Up until now, the user interface had the default white boxes from Unity, but now that I decided on a colour palette, the UI received a visual update too.</p>
                 </div>
-                <Image id="ui" src="/projects/team-tumble/ui.png" width={1600} height={900} alt="" />
+                <Image id="ui" src={ui} width={1600} height={900} alt="" />
             </div>
 
             <h2 id='playtesting'>Playtesting</h2>

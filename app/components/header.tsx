@@ -12,7 +12,7 @@ const links: { name: string, href: string }[] = [
 export default function Header() {
     const pathname = usePathname();
     return (
-        <header className="flex flex-col justify-center items-center">
+        <header className="flex flex-col justify-center items-center select-none">
             <nav className="flex justify-start items-center page-width p-4 pt-6 text-sm gap-8 w-full">
                 {links.map((link) => {
                     return (

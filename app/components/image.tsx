@@ -72,6 +72,6 @@ export default function Image({ id, src, alt, ...props }: { id: string } & Image
     };
 
     return (
-        <NextImage id={id!} src={src || ""} alt={alt || ""} onClick={handleClick} {...props} className={clsx("cursor-zoom-in", props.className)} placeholder={typeof src !== 'string' ? "blur" : "empty"} />
+        <NextImage id={id!} src={src || ""} alt={alt || ""} onClick={handleClick} {...props} className={clsx("cursor-zoom-in select-none", props.className)} placeholder={typeof src !== 'string' ? "blur" : "empty"} />
     );
 }

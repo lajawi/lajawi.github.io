@@ -44,7 +44,7 @@ export default function SortedProjects() {
                                     "xl:flex-row-reverse": i % 2 !== 0,
                                 },
                             )}>
-                            {project.data.image && <Image src={`/projects/${id}/cover.png`} alt={project.metadata?.description || ""} width={500} height={300} className="object-cover xl:w-[60%] w-full h-[250] xl:h-[300] opacity-75 transition-opacity" />}
+                            {project.data.image && <Image src={`/projects/${id}/cover.png`} alt={project.metadata?.description || ""} width={500} height={300} className="object-cover xl:w-[60%] w-full h-[250] xl:h-[300] opacity-75 transition-opacity select-none" />}
 
                             <div className="flex flex-col p-4 min-w-full xl:min-w-[400] xl:w-[40%]">
                                 <h2>{project.metadata?.title?.toString()}</h2>

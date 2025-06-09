@@ -6,7 +6,9 @@ export default function Footer() {
             <hr className="border-[var(--line)] w-full" />
             <div className="flex flex-col justify-center items-center pt-4 pb-8 gap-2">
                 <SocialLinks />
-                © 2025-present Portfolio | Laurin Winter
+                <p>
+                    © 2025-present <span className="opacity-50 self-center">|</span> Laurin Winter
+                </p>
             </div>
         </footer>
     );

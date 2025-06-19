@@ -9,7 +9,7 @@ export function sitemapData(): SitemapItem[] {
     const urls: SitemapItem[] = [];
     urls.push({ url: "/projects" });
 
-    sortedProjects("rank", false).map((project, i) => {
+    sortedProjects("rank", false).map((project) => {
         urls.push({
             url: `/projects/${project.id}`,
             title: project.metadata.title,

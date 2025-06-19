@@ -211,9 +211,9 @@ const sortedProjectsByDate = (): ProjectArray => {
     });
 }
 
-export type SortByType = "rank" | "name" | "date";
+type SortByType = "rank" | "name" | "date";
 
-export const sortedProjects = (sortBy: SortByType, ascending: boolean): ProjectArray => {
+export const sortedProjects = (sortBy: SortByType, ascending: boolean = false): ProjectArray => {
     const arr = SortBy[sortBy]();
 
     return ascending ? arr.reverse() : arr;

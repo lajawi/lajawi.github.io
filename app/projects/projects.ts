@@ -87,7 +87,7 @@ export const projects: Record<string, Project> = {
             With every choice you make, you may or may not be disrespecting human rights.`,
             openGraph: {
                 url: `${projectsUrl}/tussen-wet-en-geweten`,
-                images: [{ url: `${projectsUrl}/tussen-wet-en-geweten` }],
+                images: [{ url: `${projectsUrl}/tussen-wet-en-geweten/cover.png` }],
             },
         }
     },
@@ -102,7 +102,7 @@ export const projects: Record<string, Project> = {
             title: "Shrimp VR",
             openGraph: {
                 url: `${projectsUrl}/shrimp-vr`,
-                images: [{ url: `${projectsUrl}/shrimp-vr` }],
+                images: [{ url: `${projectsUrl}/shrimp-vr/cover.png` }],
             },
         }
     },

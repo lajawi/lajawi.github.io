@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 export type Project = {
     data: {
         name: string,
@@ -33,7 +35,11 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Team Tumble",
-            description: "Swiftly move through increasingly difficult caves, and save as many minions as you can."
+            description: "Swiftly move through increasingly difficult caves, and save as many minions as you can.",
+            openGraph: {
+                url: `${baseUrl}/projects/team-tumble`,
+                images: [{ url: `${baseUrl}/projects/team-tumble/cover.png` }],
+            },
         }
     },
     "pigeon": {

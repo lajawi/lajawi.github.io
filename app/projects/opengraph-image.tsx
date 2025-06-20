@@ -7,7 +7,18 @@ export const size = {
 
 export default async function Image() {
     return new ImageResponse((
-        <div className="text-9xl bg-(--background) w-full h-full flex items-center justify-center">
+        <div
+            style={{
+                fontSize: 128,
+                background: 'black',
+                color: 'white',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+        >
             Projects • Laurin Winter
         </div>
     ), {

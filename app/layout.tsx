@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     default: "Laurin Winter"
   },
   description: "Laurin Winter's personal website",
+  robots: {
+    noarchive: true,
+  },
 };
 
 export default function RootLayout({

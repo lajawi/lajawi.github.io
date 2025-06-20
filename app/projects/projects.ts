@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const projectsUrl = `${baseUrl}/projects`;
 
 export type Project = {
     data: {
@@ -37,8 +38,8 @@ export const projects: Record<string, Project> = {
             title: "Team Tumble",
             description: "Swiftly move through increasingly difficult caves, and save as many minions as you can.",
             openGraph: {
-                url: `${baseUrl}/projects/team-tumble`,
-                images: [{ url: `${baseUrl}/projects/team-tumble/cover.png` }],
+                url: `${projectsUrl}/team-tumble`,
+                images: [{ url: `${projectsUrl}/team-tumble/cover.png` }],
             },
         }
     },
@@ -51,6 +52,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Pigeon",
+            openGraph: {
+                url: `${projectsUrl}/pigeon`,
+                images: [{ url: `${projectsUrl}/pigeon/cover.png` }],
+            },
         }
     },
     "bubble-broth": {
@@ -62,6 +67,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Bubble Broth",
+            openGraph: {
+                url: `${projectsUrl}/bubble-broth`,
+                images: [{ url: `${projectsUrl}/bubble-broth/title.png` }],
+            },
         }
     },
     "tussen-wet-en-geweten": {
@@ -75,7 +84,11 @@ export const projects: Record<string, Project> = {
             title: "Tussen Wet en Geweten",
             description: `Take on the role of a mayor, who tries to respect as many of the universal human rights as possible. Get confronted with different situations and choose wisely.
 
-            With every choice you make, you may or may not be disrespecting human rights.`
+            With every choice you make, you may or may not be disrespecting human rights.`,
+            openGraph: {
+                url: `${projectsUrl}/tussen-wet-en-geweten`,
+                images: [{ url: `${projectsUrl}/tussen-wet-en-geweten` }],
+            },
         }
     },
     "shrimp-vr": {
@@ -87,6 +100,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Shrimp VR",
+            openGraph: {
+                url: `${projectsUrl}/shrimp-vr`,
+                images: [{ url: `${projectsUrl}/shrimp-vr` }],
+            },
         }
     },
     "bot-i": {
@@ -99,6 +116,10 @@ export const projects: Record<string, Project> = {
         metadata: {
             title: "BOT-i",
             description: `In a world of scrap, BOT-i remains. Puzzle your way through increasingly difficult terrain, while avoiding running out of battery.`,
+            openGraph: {
+                url: `${projectsUrl}/bot-i`,
+                images: [{ url: `${projectsUrl}/bot-i/cover.png` }],
+            },
         }
     },
     "3-props": {
@@ -111,6 +132,10 @@ export const projects: Record<string, Project> = {
         metadata: {
             title: "3 Props",
             description: `Yes, kitchen appliances`,
+            openGraph: {
+                url: `${projectsUrl}/3-props`,
+                images: [{ url: `${projectsUrl}/3-props/cover.png` }],
+            },
         }
     },
     "sound-design-for-a-pre-existing-game-video": {
@@ -122,6 +147,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Sound Design for a Pre-existing Game Video",
+            openGraph: {
+                url: `${projectsUrl}`,
+                images: [{ url: `${projectsUrl}/sound-design-for-a-pre-existing-game-video/cover.png` }],
+            },
         }
     },
     "character-clash": {
@@ -133,6 +162,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Character Clash",
+            openGraph: {
+                url: `${projectsUrl}/character-clash`,
+                images: [{ url: `${projectsUrl}/character-clash/cover.png` }],
+            },
         }
     },
     "operation-skyhigh": {
@@ -145,6 +178,10 @@ export const projects: Record<string, Project> = {
         metadata: {
             title: "Operation Skyhigh",
             description: `Work together with your friend, to fend yourselves against the ever increasing waves of enemies coming your way. Skillfully dash through them, or let out a burst of power, destroying the enemies in the meantime.`,
+            openGraph: {
+                url: `${projectsUrl}/operation-skyhigh`,
+                images: [{ url: `${projectsUrl}/operation-skyhigh/cover.png` }],
+            },
         }
     },
     "walking-animation": {
@@ -156,6 +193,10 @@ export const projects: Record<string, Project> = {
         },
         metadata: {
             title: "Walking Animation",
+            openGraph: {
+                url: `${projectsUrl}/walking-animation`,
+                images: [{ url: `${projectsUrl}/walking-animation/cover.png` }],
+            },
         }
     },
     "monumental": {
@@ -168,6 +209,10 @@ export const projects: Record<string, Project> = {
         metadata: {
             title: "Monumental",
             description: `Solve intriguing puzzles in scenic, well-known locations around the world!`,
+            openGraph: {
+                url: `${projectsUrl}/monumental`,
+                images: [{ url: `${projectsUrl}/monumental/cover.png` }],
+            },
         }
     },
     "sticky-getaway": {
@@ -180,6 +225,10 @@ export const projects: Record<string, Project> = {
         metadata: {
             title: "Sticky Getaway",
             description: `Go about escaping the neon labs, cleverly avoiding spikes and enemies! Find buttons, press buttons, open doors!`,
+            openGraph: {
+                url: `${projectsUrl}/sticky-getaway`,
+                images: [{ url: `${projectsUrl}/sticky-getaway/cover.png` }],
+            },
         }
     },
 } as const;

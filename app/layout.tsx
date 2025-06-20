@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   robots: {
     noarchive: true,
   },
+  metadataBase: new URL(String(process.env.NEXT_PUBLIC_BASE_URL)),
 };
 
 export default function RootLayout({

@@ -13,18 +13,24 @@ export type Project = {
              * When reading it's output with getMonth() do the opposite, add 1
             */
             date: Date,
-            detail: DateDetail,
+            detail: DateDetailType,
         },
         image?: boolean,
     },
     metadata: Metadata,
 };
 
-export enum DateDetail {
-    Year,
-    Month,
-    Day,
-}
+export const DateDetail = {
+    Year: 0,
+    Month: 1,
+    Day: 2,
+} as const;
+
+type ObjectValues<T> = T[keyof T];
+
+export type DateDetailType = ObjectValues<typeof DateDetail>;
+
+// export type DateDetail = 'Year' | 'Month' | 'Day';
 
 export const projects: Record<string, Project> = {
     "team-tumble": {

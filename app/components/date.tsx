@@ -1,6 +1,6 @@
-import { DateDetail } from "../projects/projects";
+import { DateDetailType, DateDetail } from "../projects/projects";
 
-export default function DateDisplay({ className, date, detail }: { className?: string, date: Date | undefined, detail: DateDetail | undefined }) {
+export default function DateDisplay({ className, date, detail }: { className?: string, date: Date | undefined, detail: DateDetailType | undefined }) {
     return (
         <>
             {

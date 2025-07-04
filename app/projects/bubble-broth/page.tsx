@@ -17,7 +17,7 @@ export default function Page() {
             </span>
 
             <div className="page-width flex flex-col items-center">
-                <div className="flex flex-col items-center gap-4 text-justify md:max-w-[75%]">
+                <div className="flex flex-col items-center gap-4 text-justify md:max-w-3/4">
                     <div className="text-center font-light text-sm">
                         <p className="opacity-75">{project.metadata.description}</p>
                         <DateDisplay className="opacity-75" date={project.data.date?.date} detail={project.data.date?.detail} />

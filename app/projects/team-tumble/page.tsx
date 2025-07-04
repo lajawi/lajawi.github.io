@@ -31,9 +31,9 @@ export default function Page() {
         <div className="page-width flex flex-col items-center gap-4 text-justify">
             <ProjectHeader project={project} />
 
-            <p className="md:max-w-[75%]">The basis for Team Tumble was <Link href="https://en.wikipedia.org/wiki/Boulder_Dash_(video_game)" target="_blank">Boulder Dash</Link>, a game in which you play a miner collecting diamonds against time, whilst avoiding but cleverly utilising falling boulders and enemies.</p>
+            <p className="md:max-w-3/4">The basis for Team Tumble was <Link href="https://en.wikipedia.org/wiki/Boulder_Dash_(video_game)" target="_blank">Boulder Dash</Link>, a game in which you play a miner collecting diamonds against time, whilst avoiding but cleverly utilising falling boulders and enemies.</p>
 
-            <div className="grid grid-flow-dense lg:grid-cols-[minmax(0,max-content)_minmax(40%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-[75%] lg:max-w-full">
+            <div className="grid grid-flow-dense lg:grid-cols-[minmax(0,max-content)_minmax(40%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-3/4 lg:max-w-full">
                 <div className="lg:col-2">
                     <h2 id='ideation'>Ideation</h2>
                     <p>In one of the ideas I came up with, I combined Sokoban and Boulder Dash, essentially a game where you need to make boulders fall into specific spots to finish the level by digging dirt from underneath and pushing the boulders around.</p>
@@ -41,12 +41,12 @@ export default function Page() {
                 <Image id="idea-1" src={ideaFtSokoban} width={1619} height={784} alt="Idea: Boulder Dash and Sokoban combined" />
             </div>
 
-            <div className="grid lg:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-[75%] lg:max-w-full">
+            <div className="grid lg:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-3/4 lg:max-w-full">
                 <p>{"The second idea was inspired by the location of my home university, LUCA School of Arts in Genk. It sits atop a decommisioned coal mine, and in this concept, you would need to dig for enough coal and escape before the time runs out. The catch is, the timer is oxygen inside the mines, so instead of a global timer, it's local timers, visualised by canaries in the level, which are either standing (still enough oxygen), falling (barely enough), or dead (time ran out for that particular area)."}</p>
                 <Image id="idea-2" src={ideaCoalMines} width={1499} height={775} alt="Idea: Coal Mines" />
             </div>
 
-            <div className="grid grid-flow-dense lg:grid-cols-[minmax(0,max-content)_minmax(40%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-[75%] lg:max-w-full">
+            <div className="grid grid-flow-dense lg:grid-cols-[minmax(0,max-content)_minmax(40%,1fr)] items-center align-middle justify-items-center gap-4 md:max-w-3/4 lg:max-w-full">
                 <div className="lg:col-2 flex flex-col gap-2">
                     <p>In a third idea, I played around with the size of the player character. What if, instead of only one block, you could suddenly dig through what is essentially four blocks of dirt?</p>
                     <p>By using the sparsely distributed powerups to grow and shrink in size, you would have to dig to a hidden treasure, and escape the level before the time runs out.</p>
@@ -54,14 +54,14 @@ export default function Page() {
                 <Image id="idea-3" src={ideaBigSmall} width={1345} height={829} alt="Idea: Player Resising" />
             </div>
 
-            <p className="md:max-w-[75%]">In yet another concept, I played around with the amount of characters. Why only have one, if you could have more? This idea stuck, and I went on to prototype around it.</p>
+            <p className="md:max-w-3/4">In yet another concept, I played around with the amount of characters. Why only have one, if you could have more? This idea stuck, and I went on to prototype around it.</p>
 
             <h2 id='prototyping'>Prototyping</h2>
-            <p className="md:max-w-[75%]">With a clear vision of what my core game mechanics were, I started prototyping. At first, I worked with an object oriented approach, but that quickly became a burden, especially once I implemented the boulders. They need to know when another space is either occupied or about to be occupied in the next update.</p>
+            <p className="md:max-w-3/4">With a clear vision of what my core game mechanics were, I started prototyping. At first, I worked with an object oriented approach, but that quickly became a burden, especially once I implemented the boulders. They need to know when another space is either occupied or about to be occupied in the next update.</p>
             <Image className="md:max-w-[50%]" id="object-orient" src={objectOriented} width={1600} height={900} alt="" />
 
             {/* TODO: Fine tune image placement on different mediums */}
-            <div className="grid grid-flow-dense xl:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle gap-4 md:max-w-[75%] xl:max-w-full">
+            <div className="grid grid-flow-dense xl:grid-cols-[minmax(0,max-content)_minmax(50%,1fr)] items-center align-middle gap-4 md:max-w-3/4 xl:max-w-full">
                 <div className="flex flex-col items-center gap-4">
                     <p>Very early in development, I decided to switch to using tile maps in Unity (my first time, actually), which required a rewrite of my whole project as it was at that point, a task I am very glad of achieving.</p>
                     <Image id="tilemaps" className="xl:hidden md:max-w-[66.66%]" src={tilemaps} width={1600} height={900} alt="" />
@@ -79,7 +79,7 @@ export default function Page() {
                 })}
             </div>
 
-            <div className="grid grid-flow-dense md:grid-cols-[minmax(0,max-content)_minmax(35%,1fr)] items-center align-middle gap-4 xl:max-w-[75%]">
+            <div className="grid grid-flow-dense md:grid-cols-[minmax(0,max-content)_minmax(35%,1fr)] items-center align-middle gap-4 xl:max-w-3/4">
                 <div className="md:col-2">
                     <h2 id='ui'>UI</h2>
                     <p>Up until now, the user interface had the default white boxes from Unity, but now that I decided on a colour palette, the UI received a visual update too.</p>
@@ -88,8 +88,8 @@ export default function Page() {
             </div>
 
             <h2 id='playtesting'>Playtesting</h2>
-            <p className="md:max-w-[75%]">During the whole development of Team Tumble, I made sure to extensively playtest the game, to make sure the learning curve was perfect, and the levels were doable.</p>
-            <p className="md:max-w-[75%]">And with that, the game was ready to be published! You can now play the 8 levels coming with the game on <Link href="https://lajawi.itch.io/team-tumble/" target="_blank">Itch</Link>
+            <p className="md:max-w-3/4">During the whole development of Team Tumble, I made sure to extensively playtest the game, to make sure the learning curve was perfect, and the levels were doable.</p>
+            <p className="md:max-w-3/4">And with that, the game was ready to be published! You can now play the 8 levels coming with the game on <Link href="https://lajawi.itch.io/team-tumble/" target="_blank">Itch</Link>
             {/* TODO: Uncomment line after game embed has been added */}
             {/* , or at the end of this page */}
             .</p>

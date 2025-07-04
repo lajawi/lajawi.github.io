@@ -23,7 +23,7 @@ const images: StaticImport[] = [
 export default function Page() {
     return(
         <div className="page-width flex flex-col items-center gap-4 text-justify">
-            <div className="flex flex-col items-center gap-4 text-justify md:max-w-[75%]">
+            <div className="flex flex-col items-center gap-4 text-justify md:max-w-3/4">
                 <ProjectHeader project={project} />
 
                 <p>As a group of five students from LUCA School of Arts - Mirte Bosmans, Kjenta Gevaert, <Link href="https://linktr.ee/CidarDew" target="_blank">Cidar Dewachter</Link>, and <Link href="https://linktr.ee/StijnMatu" target="_blank">Stijn Matu</Link> -, we got asked to come up with and create a prototype for a game or interactive experience that could fit in the <Link href="https://kazernedossin.eu/en/museum/" target="_blank">Kazerne Dossin Museum</Link>. Kazerne Dossin Museum is a museum based in Mechelen, Belgium, with a permanent exhibition about the persecution of Jews, Roma, and Sinti in Belgium during the Second World War, and on human rights. The topic we were tasked to focus on, is the importance of human rights which got introduced shortly after the Second World War.</p>

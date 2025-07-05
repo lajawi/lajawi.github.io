@@ -41,7 +41,7 @@ export default function Page() {
 
             <div className="grid grid-flow-dense md:grid-cols-2 items-center align-middle gap-4 xl:max-w-3/4">
                 <div className="md:col-2 flex flex-col gap-2">
-                    <h2>Visuals & Sounds</h2>
+                    <h2 id="visuals-and-sounds">Visuals & Sounds</h2>
                     <p>{"Of course, a game is only halfway done without visuals or sounds. So once the levels were mostly done, I focused completely on enhancing the game's look and feel. This includes not only 3D models and 2D textures, but lighting, camera view, UI, sound effects, and music too."}</p>
                     <p>That concludes my project BOT-i, which I released on Itch, playable in the browser!</p>
                 </div>

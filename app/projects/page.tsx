@@ -3,6 +3,7 @@ import SortedProjects from "../components/sorted-projects";
 
 export const metadata: Metadata = {
     title: "Projects",
+    description: "A collection of my proudest works since I started Game Design",
 };
 
 export default function Page() {

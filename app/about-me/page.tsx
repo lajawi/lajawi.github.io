@@ -1,5 +1,11 @@
 import Image from "next/image";
 import imageMe from "@/public/me.png";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About Me",
+    description: "Hi, my name is Laurin, a German Game Designer from Belgium",
+}
 
 export default function Page() {
     return (

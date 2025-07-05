@@ -16,7 +16,7 @@ export default function YouTubeEmbed(
     const hasCookiesConsent = false;
 
     return (
-        <div className="flex w-full justify-center items-center rounded-md border-2 border-black/25 dark:border-white/25 bg-black/5 dark:bg-white/5 overflow-hidden"
+        <div className="relative flex w-full justify-center items-center rounded-md border-2 border-black/25 dark:border-white/25 bg-black/5 dark:bg-white/5 overflow-hidden"
         style={{maxWidth: width, aspectRatio: `${width} / ${height}`}}
         >
             {hasCookiesConsent &&
@@ -42,9 +42,7 @@ export default function YouTubeEmbed(
                 <p className="p-4">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`}>YouTube</Link>.</p>
             }
 
-            <div className="absolute flex -z-50 items-center justify-center" style={{aspectRatio: `${width} / ${height}`, maxWidth: width, width: "100%"}}>
-                <Play color="var(--muted)" fill="var(--muted)" opacity={0.05} size={"50%"} />
-            </div>
+            <Play color="var(--muted)" fill="var(--muted)" opacity={0.05} size={"60%"} className="absolute -z-50" />
         </div>
     );
 }

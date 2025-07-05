@@ -7,7 +7,13 @@ type SitemapItem = ArrayElement<MetadataRoute.Sitemap> & Metadata;
 
 export function sitemapData(): SitemapItem[] {
     const urls: SitemapItem[] = [];
-    urls.push({ url: "/projects" });
+
+    const staticPages: SitemapItem[] = [
+        { url: "/" },
+        { url: "/projects" },
+    ]
+
+    urls.push(...staticPages);
 
     sortedProjects("rank", false).map((project) => {
         urls.push({
@@ -16,5 +22,12 @@ export function sitemapData(): SitemapItem[] {
         });
     });
 
-    return urls;
+    // Add defaults to all object that don't define the variables
+    const changedUrls = urls.map(url => ({
+        ...url,
+        changeFrequency: url.changeFrequency ?? "weekly",
+        lastModified: url.lastModified ?? new Date().toISOString().split("T")[0],
+    }));
+
+    return changedUrls;
 }

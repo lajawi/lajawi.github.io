@@ -5,6 +5,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "About Me",
     description: "Hi, my name is Laurin, a German Game Designer from Belgium",
+    openGraph: {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/about-me`,
+        images: [{ url: `${process.env.NEXT_PUBLIC_BASE_URL}/me.png` }],
+    },
 }
 
 export default function Page() {

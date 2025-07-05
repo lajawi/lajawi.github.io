@@ -11,6 +11,7 @@ export function sitemapData(): SitemapItem[] {
     const staticPages: SitemapItem[] = [
         { url: "/" },
         { url: "/projects" },
+        { url: "/about-me" },
     ]
 
     urls.push(...staticPages);

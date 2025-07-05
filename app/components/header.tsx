@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const links: { name: string, href: string }[] = [
     { name: 'Home', href: '/' },
     { name: 'Projects', href: '/projects' },
+    { name: 'About Me', href: '/about-me' },
 ];
 
 export default function Header() {

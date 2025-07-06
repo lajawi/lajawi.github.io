@@ -34,12 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-svh">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-full`}
       >
         <Header />
-        <main className="flex-1 flex flex-col items-center justify-center p-4 min-h-[70vh]">
+        <main className="flex-1 flex flex-col items-center justify-center p-4 min-h-3/4">
           <ImageProvider>
             {children}
             <FullscreenImage />

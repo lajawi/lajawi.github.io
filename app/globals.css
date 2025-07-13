@@ -38,6 +38,53 @@ body {
   max-width: var(--max-w);
 }
 
+.navbar {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  width: 100%;
+  gap: 2rem;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  gap: 2rem;
+}
+
+.navbar-nav > .nav-item {
+  padding: 1rem 0;
+}
+
+.nav-item > a > svg {
+  transition: transform 100ms;
+}
+
+.nav-item:hover > a > svg {
+  transform: rotate(180deg);
+}
+
+.nav-item:hover > .dropdown {
+  display: flex;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  padding: 1rem;
+  background-color: var(--background);
+  border-color: var(--line);
+  border-width: 1px;
+  transform: translateY(1rem);
+  flex-direction: column;
+  z-index: 100;
+  gap: 1rem;
+}
+
 h1 {
   font-size: xx-large;
   font-weight: 900;

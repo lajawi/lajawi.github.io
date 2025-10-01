@@ -49,7 +49,8 @@ export function LinkItem({ children, name, href, icon, className }: { children?:
             {
                 "text-(--muted)": pathname !== href,
                 "text-(--foreground)": pathname === href,
-            })}
+            },
+            "hover:bg-(--background-highlight) rounded-xs p-2")}
         >
             {icon} {name} {children}
         </Link>

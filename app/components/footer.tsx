@@ -12,7 +12,7 @@ export default function Footer() {
                 </p>
 
                 <p>This page is still a work in progress.</p>
-                <p>Can't find something? Head on over to <Link href={"https://laurin-winter.name/"}>laurin-winter.name</Link>.</p>
+                <p>Can&apos;t find something? Head on over to <Link href={"https://laurin-winter.name/"}>laurin-winter.name</Link>.</p>
             </div>
         </footer>
     );

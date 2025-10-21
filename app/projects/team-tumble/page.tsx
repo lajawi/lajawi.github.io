@@ -25,7 +25,7 @@ const paletteImages: StaticImport[] = [
     colorPal1, colorPal2, colorPal3, colorPal4, colorPal5, colorPal6,
 ];
 
-// TODO: Add image alts, from https://laurin-winter.name/team-tumble
+// TODO: Add image alts, from https://archive.laurin-winter.name/team-tumble
 export default function Page() {
     return (
         <div className="page-width flex flex-col items-center gap-4 text-justify">

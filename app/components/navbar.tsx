@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from "clsx";
-import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -19,7 +19,7 @@ export function NavItem({ children, name, href, icon }: { children?: React.React
     return (
         <li className="nav-item">
             <LinkItem name={name} href={href} icon={icon} className="flex flex-row gap-1 items-center">
-                {children && <ChevronUp size={"20"} />}
+                {children && <ChevronDown size={"15"} />}
             </LinkItem>
             {children}
         </li>

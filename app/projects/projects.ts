@@ -243,7 +243,9 @@ export const sortedProjectsAsArray = (): [string, Project][] => {
     return Object.entries(projects).sort((a, b) => b[1].data.rank - a[1].data.rank);
 }
 
-type ProjectArray = ({ id: string } & Project)[];
+export type ProjectWithId = {id: string} & Project;
+
+type ProjectArray = ProjectWithId[];
 
 const projectsAsObject = (): ProjectArray => {
     return Object.entries(projects).map(([k, v]) => ({
@@ -251,6 +253,28 @@ const projectsAsObject = (): ProjectArray => {
         ...v,
     }));
 };
+
+type RecordableKeys<T> = {
+  // for each key in T
+  [K in keyof T]:
+    // is the value a valid object key?
+    T[K] extends string | number | symbol
+    // Yes, return the key itself
+    ? K
+    // No. Return `never`
+    : never
+}[keyof T] // Get a union of the values that are not `never`.
+
+function toRecord<
+  T extends { [P in RecordableKeys<T>]: string | number | symbol },
+  K extends RecordableKeys<T>
+>(array: T[], selector: K): Record<T[K], T> {
+  return array.reduce((acc, item) => (acc[item[selector]] = item, acc), {} as Record<T[K], T>)
+}
+
+export const projectsWithIds: Record<string, ProjectWithId> = toRecord(Object.entries(projects).map(([k, v]) => ({id: k, ...v})), "id");
+
+// export const projectsWithIds: { [key: string]: ProjectWithId } = projects as { [key: string]: ProjectWithId };
 
 const sortedProjectsByRank = (): ProjectArray => {
     return projectsAsObject().sort((a, b) => b.data.rank - a.data.rank);

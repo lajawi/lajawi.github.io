@@ -34,12 +34,12 @@ export default function YouTubeEmbed(
             {fallbackVideo && !hasCookiesConsent &&
                 <video controls width={"auto"} height={"100%"} className="block w-fit h-fit">
                     <source src={fallbackVideo}/>
-                    <p className="p-4">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`}>YouTube</Link>.</p>
+                    <p className="p-4">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`} target="_blank">YouTube</Link>.</p>
                 </video>
             }
 
             {!fallbackVideo && !hasCookiesConsent &&
-                <p className="p-4 z-30">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`}>YouTube</Link>.</p>
+                <p className="p-4 z-30">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`} target="_blank">YouTube</Link>.</p>
             }
 
             <Play color="var(--background-highlight)" fill="var(--background-highlight)" opacity={0.5} size={"60%"} className="absolute z-20" />

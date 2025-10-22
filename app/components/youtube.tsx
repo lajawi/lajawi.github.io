@@ -16,7 +16,7 @@ export default function YouTubeEmbed(
     const hasCookiesConsent = false;
 
     return (
-        <div className="relative flex w-full justify-center items-center rounded-md border-2 border-black/25 dark:border-white/25 bg-black/5 dark:bg-white/5 overflow-hidden"
+        <div className="relative flex w-full justify-center items-center video-embed z-10"
         style={{maxWidth: width, aspectRatio: `${width} / ${height}`}}
         >
             {hasCookiesConsent &&
@@ -39,10 +39,10 @@ export default function YouTubeEmbed(
             }
 
             {!fallbackVideo && !hasCookiesConsent &&
-                <p className="p-4">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`}>YouTube</Link>.</p>
+                <p className="p-4 z-30">Video could not load. You can watch it on <Link href={`https://youtu.be/${ytId}`}>YouTube</Link>.</p>
             }
 
-            <Play color="var(--muted)" fill="var(--muted)" opacity={0.05} size={"60%"} className="absolute -z-50" />
+            <Play color="var(--background-highlight)" fill="var(--background-highlight)" opacity={0.5} size={"60%"} className="absolute z-20" />
         </div>
     );
 }

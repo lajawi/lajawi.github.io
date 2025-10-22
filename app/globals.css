@@ -198,6 +198,14 @@ p > a {
   opacity: 100%;
 }
 
+.video-embed {
+  border-width: 2px;
+  border-color: var(--background-highlight);
+  border-radius: calc(var(--radius) /* 0.25rem = 4px */ - 2px);
+  background-color: var(--off-background);
+  overflow: hidden;
+}
+
 .dark {
   /* --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423); */

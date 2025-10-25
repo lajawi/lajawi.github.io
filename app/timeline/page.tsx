@@ -1,10 +1,11 @@
-import { datesFrom, datesTo, experiences } from "./experiences";
+import { dateToDays } from "@/lib/utils";
+import { experiences } from "./experiences";
 
 export default function Page() {
-    const strokeWidth = 50;
+    const strokeWidth = 25;
 
-    const min = datesFrom.reduce((a, b) => Math.min(a, b));
-    const max = datesTo.reduce((a, b) => Math.max(a, b));
+    const min = experiences.map((exp) => exp.dateFrom).reduce((a, b) => Math.min(a, b));
+    const max = experiences.map((exp) => exp.dateTo).reduce((a, b) => Math.max(a, b));
 
     const diff = max - min;
 
@@ -14,7 +15,7 @@ export default function Page() {
     }
 
     const yearDates: Date[] = years.map((year) => new Date(year, 0, 1));
-    const yearTimes: number[] = yearDates.map((date) => date.getTime() / 1000 / 60 / 60 / 24);
+    const yearTimes: number[] = yearDates.map((date) => dateToDays(date));
 
     return (
         <div>
@@ -31,7 +32,7 @@ export default function Page() {
                         y1={-year}
                         y2={-year}
 
-                        strokeWidth={15}
+                        strokeWidth={10}
                         stroke="var(--line)"
                         strokeLinecap="round"
                     />
@@ -46,8 +47,8 @@ export default function Page() {
 
                             x1={5}
                             x2={5}
-                            y1={(-exp.dateFrom.getTime() / 1000 / 60 / 60 / 24) - strokeWidth / 2}
-                            y2={(-exp.dateTo.getTime() / 1000 / 60 / 60 / 24) + strokeWidth / 2}
+                            y1={(-exp.dateFrom) - strokeWidth / 2}
+                            y2={(-exp.dateTo) + strokeWidth / 2}
 
                             strokeWidth={strokeWidth}
                             stroke={exp.color}

@@ -1,3 +1,5 @@
+import { dateToDays } from "@/lib/utils";
+
 export type Experience = {
     name: string,
     dateFrom: Date,
@@ -5,7 +7,7 @@ export type Experience = {
     color: string,
 }
 
-export const experiences: Experience[] = [
+const experiencesPrivate: Experience[] = [
     {
         name: "LUCA School of Arts, Game Design MA",
         dateFrom: new Date(2025, 8, 22),
@@ -44,5 +46,11 @@ export const experiences: Experience[] = [
     },
 ];
 
-export const datesFrom = experiences.map((date) => date.dateFrom.getTime() / 1000 / 60 / 60 / 24);
-export const datesTo = experiences.map((date) => date.dateTo.getTime() / 1000 / 60 / 60 / 24);
+export const experiences: { name: string, dateFrom: number, dateTo: number, color: string }[] = experiencesPrivate.map((exp) => {
+    return {
+        name: exp.name,
+        dateFrom: dateToDays(exp.dateFrom),
+        dateTo: dateToDays(exp.dateTo),
+        color: exp.color,
+    };
+});

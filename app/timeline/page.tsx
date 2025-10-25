@@ -86,6 +86,19 @@ export default function Page() {
                         />
                     );
                 })}
+
+                <line
+                    x1={-1000}
+                    x2={1000}
+                    y1={-dateToDays(Date.now())}
+                    y2={-dateToDays(Date.now())}
+
+                    strokeWidth={2}
+                    stroke="var(--line)"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray={"5 15"}
+                />
             </svg>
         </div>
     );

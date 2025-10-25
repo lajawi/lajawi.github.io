@@ -23,6 +23,20 @@ export default function Page() {
                 height={diff}
                 viewBox={`0 ${-min - diff} 10 ${diff}`}
             >
+                <line
+                    x1={-1000}
+                    x2={1000}
+                    y1={-dateToDays(Date.now())}
+                    y2={-dateToDays(Date.now())}
+
+                    strokeWidth={2}
+                    stroke="var(--line)"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray={"5 15"}
+                />
+
+
                 {years.map((year, i) => {
                     const yearTime = dateToDays(new Date(year, 0, 1));
 
@@ -45,6 +59,11 @@ export default function Page() {
                                 y={-yearTime}
                                 textAnchor="end"
                                 className="font-mono text-9xl align-middle fill-(--line) select-none font-thin"
+
+                                strokeWidth={15}
+                                stroke="var(--background)"
+                                strokeLinejoin="round"
+                                paintOrder={"stroke"}
                             >
                                 {year}
                             </text>
@@ -101,6 +120,11 @@ export default function Page() {
                                 <text
                                     className="fill-(--foreground) text-3xl"
                                     alignmentBaseline="middle"
+
+                                    strokeWidth={15}
+                                    stroke="var(--background)"
+                                    strokeLinejoin="round"
+                                    paintOrder={"stroke"}
                                 >
                                     {exp.name}
                                 </text>
@@ -108,6 +132,11 @@ export default function Page() {
                                     <text
                                         className="fill-(--foreground) text-1xl"
                                         y={30}
+
+                                        strokeWidth={15}
+                                        stroke="var(--background)"
+                                        strokeLinejoin="round"
+                                        paintOrder={"stroke"}
                                     >
                                         {exp.desc}
                                     </text>
@@ -116,19 +145,6 @@ export default function Page() {
                         </g>
                     );
                 })}
-
-                <line
-                    x1={-1000}
-                    x2={1000}
-                    y1={-dateToDays(Date.now())}
-                    y2={-dateToDays(Date.now())}
-
-                    strokeWidth={2}
-                    stroke="var(--line)"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeDasharray={"5 15"}
-                />
             </svg>
         </div>
     );

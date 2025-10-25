@@ -17,18 +17,18 @@ export default function Page() {
     const lines: { from: number, to: number, pos: number }[] = [];
 
     return (
-        <div>
+        <div className="w-full">
             <svg
-                width={500}
+                width={"100%"}
                 height={diff}
                 viewBox={`0 ${-min - diff} 10 ${diff}`}
             >
-                {years.map((year) => {
+                {years.map((year, i) => {
                     const yearTime = dateToDays(new Date(year, 0, 1));
 
                     return (
                         <g
-                            key={year}
+                            key={i}
                         >
                             <line
                                 x1={-50}
@@ -41,9 +41,10 @@ export default function Page() {
                                 strokeLinecap="round"
                             />
                             <text
-                                x={65}
+                                x={-65}
                                 y={-yearTime}
-                                className="font-mono text-2xl align-middle fill-(--line) select-none"
+                                textAnchor="end"
+                                className="font-mono text-9xl align-middle fill-(--line) select-none font-thin"
                             >
                                 {year}
                             </text>
@@ -52,7 +53,7 @@ export default function Page() {
                 }
                 )}
 
-                {experiences.map((exp) => {
+                {experiences.map((exp, i) => {
                     const filteredLines = lines.filter((line) => {
                         return exp.dateFrom >= line.from && exp.dateFrom <= line.to || exp.dateTo <= line.to && exp.dateTo >= line.from || line.from >= exp.dateFrom && line.to <= exp.dateTo;
                     });
@@ -71,19 +72,48 @@ export default function Page() {
                     const x = 30 * Math.floor(pos / 2 + 0.5) * (pos % 2 == 0 ? -1 : 1);
 
                     return (
-                        <line
-                            key={exp.name}
+                        <g
+                            key={i}
+                        >
+                            <line
+                                x1={x}
+                                x2={x}
+                                y1={(-exp.dateFrom) - strokeWidth / 2}
+                                y2={(-exp.dateTo) + strokeWidth / 2}
 
-                            x1={x}
-                            x2={x}
-                            y1={(-exp.dateFrom) - strokeWidth / 2}
-                            y2={(-exp.dateTo) + strokeWidth / 2}
+                                strokeWidth={strokeWidth}
+                                stroke={exp.color}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <g
+                                transform={`translate(65, ${-(exp.dateTo - ((exp.dateTo - exp.dateFrom) / 2))})`}
+                            >
+                                <line
+                                    x2={150}
+                                    y1={-40}
+                                    y2={-40}
 
-                            strokeWidth={strokeWidth}
-                            stroke={exp.color}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
+                                    strokeWidth={1}
+                                    stroke={exp.color}
+                                    strokeLinecap="butt"
+                                />
+                                <text
+                                    className="fill-(--foreground) text-3xl"
+                                    alignmentBaseline="middle"
+                                >
+                                    {exp.name}
+                                </text>
+                                {exp.desc &&
+                                    <text
+                                        className="fill-(--foreground) text-1xl"
+                                        y={30}
+                                    >
+                                        {exp.desc}
+                                    </text>
+                                }
+                            </g>
+                        </g>
                     );
                 })}
 

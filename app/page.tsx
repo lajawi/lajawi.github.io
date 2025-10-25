@@ -13,7 +13,7 @@ export default function Home() {
       <div className="rotating-text-demo flex-col sm:flex-row">
         <Image src={"/icon.svg"} alt="" width={200} height={200} className="m-8" />
         <div className="text-4xl md:text-6xl font-black font-mono flex flex-col">
-          <p className="text-center sm:text-left">I am Laurin</p>
+          <p className="text-center sm:text-left text-(--foreground)">I am Laurin</p>
           <LayoutGroup>
             <motion.p className="rotating-text-ptag" layout>
               <RotatingText

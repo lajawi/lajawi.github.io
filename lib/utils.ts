@@ -5,6 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function dateToDays(date: Date): number {
-  return date.getTime() / 1000 / 60 / 60 / 24;
+export function dateToDays(date: Date | number): number {
+  if (date instanceof Date)
+    return millisecondsToDays(date.getTime());
+  return millisecondsToDays(date);
+}
+
+function millisecondsToDays(milliseconds: number): number {
+  return milliseconds / 1000 / 60 / 60 / 24;
 }

@@ -54,3 +54,5 @@ export const experiences: { name: string, dateFrom: number, dateTo: number, colo
         color: exp.color,
     };
 });
+
+export const experiencesSorted = [...experiences].sort((a, b) => a.dateFrom - b.dateFrom);

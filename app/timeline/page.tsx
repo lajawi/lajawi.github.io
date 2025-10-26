@@ -28,19 +28,37 @@ export default function Page() {
 }
 
 function TodayIndicatorSvg() {
-    return (
-        <line
-            x1={-1000}
-            x2={1000}
-            y1={-dateToDays(Date.now())}
-            y2={-dateToDays(Date.now())}
+    const now = -dateToDays(Date.now());
 
-            strokeWidth={2}
-            stroke="var(--line)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray={"5 15"}
-        />
+    return (
+        <g>
+            <line
+                x1={-1000}
+                x2={1000}
+                y1={now}
+                y2={now}
+
+                strokeWidth={2}
+                stroke="var(--line)"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray={"5 15"}
+            />
+            <text
+                x={-500}
+                y={now}
+                dominantBaseline={"middle"}
+                className="font-mono select-none"
+
+                fill="var(--line)"
+                strokeWidth={15}
+                stroke="var(--background)"
+                strokeLinejoin="round"
+                paintOrder={"stroke"}
+            >
+                PRESENT
+            </text>
+        </g>
     );
 }
 

@@ -45,10 +45,10 @@ function TodayIndicatorSvg() {
                 strokeDasharray={"5 15"}
             />
             <text
+                className="font-mono select-none text-2xl md:text-base"
                 x={0}
                 y={now}
                 dominantBaseline={"middle"}
-                className="font-mono select-none"
 
                 fill="var(--line)"
                 strokeWidth={15}
@@ -168,16 +168,17 @@ function ExperienceNameSvg({ experience }: { experience: Experience }) {
             transform={`translate(${width / 2 + 65}, ${-(experience.dateTo - ((experience.dateTo - experience.dateFrom) / 2))})`}
         >
             <line
+                className="stroke-2 md:stroke-1 md:translate-y-2.5"
                 x2={150}
-                y1={-40}
-                y2={-40}
+                y1={-50}
+                y2={-50}
 
                 strokeWidth={1}
                 stroke={experience.color}
                 strokeLinecap="butt"
             />
             <text
-                className="fill-(--foreground) text-3xl"
+                className="fill-(--foreground) text-4xl md:text-3xl"
                 alignmentBaseline="middle"
 
                 strokeWidth={15}
@@ -189,8 +190,8 @@ function ExperienceNameSvg({ experience }: { experience: Experience }) {
             </text>
             {experience.desc &&
                 <text
-                    className="fill-(--foreground) text-1xl"
-                    y={30}
+                    className="fill-(--foreground) text-3xl md:text-xl md:-translate-y-5"
+                    y={50}
 
                     strokeWidth={15}
                     stroke="var(--background)"

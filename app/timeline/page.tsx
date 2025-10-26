@@ -129,7 +129,9 @@ function ExperienceSvg({ experience }: { experience: Experience }) {
 
 function ExperienceLineSvg({ experience }: { experience: Experience }) {
     const filteredLines = lines.filter((line) => {
-        return experience.dateFrom >= line.from && experience.dateFrom <= line.to || experience.dateTo <= line.to && experience.dateTo >= line.from || line.from >= experience.dateFrom && line.to <= experience.dateTo;
+        return experience.dateFrom >= line.from && experience.dateFrom <= line.to
+            || experience.dateTo <= line.to && experience.dateTo >= line.from
+            || line.from >= experience.dateFrom && line.to <= experience.dateTo;
     });
 
     const line = filteredLines.reduce((prev, curr) => (prev && prev.pos > curr.pos) ? prev : curr, { from: 0, to: 0, pos: 0 });

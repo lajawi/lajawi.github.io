@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Timeline",
-    description: "School, uni, internships, work... all on the timeline.",
+    description: "School, uni, internships, work... a trip down memory lane.",
 }
 
 const strokeWidth = 15;

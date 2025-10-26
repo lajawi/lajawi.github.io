@@ -1,5 +1,11 @@
 import { dateToDays } from "@/lib/utils";
 import { Experience, experiences } from "./experiences";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Timeline",
+    description: "School, uni, internships, work... all on the timeline.",
+}
 
 const strokeWidth = 15;
 const lines: { from: number, to: number, pos: number }[] = [];

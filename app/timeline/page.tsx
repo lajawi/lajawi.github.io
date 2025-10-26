@@ -9,15 +9,15 @@ const max = experiences.map((exp) => exp.dateTo).reduce((a, b) => Math.max(a, b)
 
 const diff = max - min;
 
+const width = 1000;
+
 export default function Page() {
     lines.length = 0;
 
     return (
-        <div className="w-full">
+        <div className="page-width w-full">
             <svg
-                width={"100%"}
-                height={diff}
-                viewBox={`0 ${-min - diff} 10 ${diff}`}
+                viewBox={`0 ${-min - diff} ${width} ${diff}`}
             >
                 <TodayIndicatorSvg />
                 <YearsSvg />
@@ -33,8 +33,8 @@ function TodayIndicatorSvg() {
     return (
         <g>
             <line
-                x1={-1000}
-                x2={1000}
+                x1={0}
+                x2={width}
                 y1={now}
                 y2={now}
 
@@ -45,7 +45,7 @@ function TodayIndicatorSvg() {
                 strokeDasharray={"5 15"}
             />
             <text
-                x={-500}
+                x={0}
                 y={now}
                 dominantBaseline={"middle"}
                 className="font-mono select-none"
@@ -64,7 +64,7 @@ function TodayIndicatorSvg() {
 
 function YearsSvg() {
     const years: number[] = [];
-    for (var i = 2000; i <= 2100; i++) {
+    for (let i = 2000; i <= 2100; i++) {
         years.push(i);
     }
 
@@ -83,8 +83,8 @@ function YearSvg({ year }: { year: number }) {
     return (
         <g>
             <line
-                x1={-50}
-                x2={50}
+                x1={width / 2 - 50}
+                x2={width / 2 + 50}
                 y1={-yearTime}
                 y2={-yearTime}
 
@@ -92,7 +92,7 @@ function YearSvg({ year }: { year: number }) {
                 stroke="var(--line)"
                 strokeLinecap="round" />
             <text
-                x={-65}
+                x={width / 2 - 65}
                 y={-yearTime}
                 textAnchor="end"
                 className="font-mono text-9xl align-middle fill-(--line) select-none font-thin"
@@ -145,7 +145,7 @@ function ExperienceLineSvg({ experience }: { experience: Experience }) {
         pos: pos,
     });
 
-    const x = 30 * Math.floor(pos / 2 + 0.5) * (pos % 2 == 0 ? -1 : 1);
+    const x = width / 2 + 30 * Math.floor(pos / 2 + 0.5) * (pos % 2 == 0 ? -1 : 1);
 
     return (
         <line
@@ -165,7 +165,7 @@ function ExperienceLineSvg({ experience }: { experience: Experience }) {
 function ExperienceNameSvg({ experience }: { experience: Experience }) {
     return (
         <g
-            transform={`translate(65, ${-(experience.dateTo - ((experience.dateTo - experience.dateFrom) / 2))})`}
+            transform={`translate(${width / 2 + 65}, ${-(experience.dateTo - ((experience.dateTo - experience.dateFrom) / 2))})`}
         >
             <line
                 x2={150}

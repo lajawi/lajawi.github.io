@@ -18,6 +18,7 @@ export default function Header() {
                         })}
                     </DropdownMenu>
                 </NavItem>
+                <NavItem href="/timeline" name="Timeline"></NavItem>
                 <NavItem href="/about-me" name="About Me"></NavItem>
             </Navbar>
             <hr className="border-(--line) w-full" />

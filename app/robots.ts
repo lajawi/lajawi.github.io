@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const allowedUserAgents = [
   "Googlebot",      // Google
   "Bingbot",        // Bing & Copilot

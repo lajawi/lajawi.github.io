@@ -8,6 +8,8 @@ const colors = {
 	line: "#464646",
 };
 
+export const dynamic = "force-static";
+
 export const size = {
 	width: 1200,
 	height: 630,

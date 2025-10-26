@@ -12,6 +12,8 @@ export const size = {
     height: 630,
 }
 
+export const dynamic = "force-static";
+
 const imageWidth = size.width / projectsIds.length
 const skewOffset = 100 // Adjust this to control the skew amount
 

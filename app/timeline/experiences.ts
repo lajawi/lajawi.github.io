@@ -8,7 +8,7 @@ type ExperiencePrivate = {
     color: string,
 }
 
-type Experience = {
+export type Experience = {
     name: string,
     desc?: string,
     dateFrom: number,

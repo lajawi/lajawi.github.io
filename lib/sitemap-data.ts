@@ -12,6 +12,7 @@ export function sitemapData(): SitemapItem[] {
         { url: "/" },
         { url: "/projects" },
         { url: "/about-me" },
+        { url: "/timeline" },
     ]
 
     urls.push(...staticPages);

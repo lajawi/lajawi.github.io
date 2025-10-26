@@ -10,6 +10,6 @@ export default function ProjectNotFoundWithLink() {
     console.log(pathname);
 
     return (
-        <p>It may be at <Link href={`https://archive.laurin-winter.name/${project}`}>archive.laurin-winter.name/{project}</Link>.</p>
+        <p>It may be at <Link href={`https://laurin-winter.name/${project}`}>laurin-winter.name/{project}</Link>.</p>
     );
 }
